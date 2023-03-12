@@ -1,18 +1,24 @@
 // import { Button } from "@/Components/Button";
 import { Button } from "@/Components/Button";
+
 import { SocketClient } from "@/SocketClient";
 import { randomUUID } from "crypto";
 import { KeyboardEvent, useEffect, useState } from "react";
 import styled from "styled-components";
+import { getMessages } from "./api/messages";
 
-const Home = () => {
+interface chatProps {
+  msgsProps: string[];
+}
+export async function getServerSideProps() {
+  return {
+    props: { msgsProps: getMessages() }, // will be passed to the page component as props
+  };
+}
+
+const Home = ({ msgsProps }: chatProps) => {
   const initSocket = async () => {
     return await fetch("/api/socket");
-  };
-  const getPrevMessages = async () => {
-    const res = await fetch("/api/messages");
-    const data: string[] = await res.json();
-    return data;
   };
 
   const [messages, setMessages] = useState<string[]>([]);
@@ -20,8 +26,8 @@ const Home = () => {
   const [someoneTyping, setSomeoneTyping] = useState<boolean>(false);
   useEffect(() => {
     (async () => {
+      setMessages(msgsProps);
       await initSocket();
-      setMessages(await getPrevMessages());
 
       SocketClient.getInstance().on("connect", () => {
         console.log("connected");
@@ -36,7 +42,7 @@ const Home = () => {
         setSomeoneTyping(false);
       });
     })();
-  }, [setMessages]);
+  }, [msgsProps, setMessages]);
 
   //   SocketClient.getInstance().on("update-input", (msg) => {
   //     console.log(msg);

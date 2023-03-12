@@ -12,6 +12,7 @@ export class Messages {
   static getInstance() {
     if (!this.instance) {
       this.instance = new Messages();
+      this.instance.messages = this.instance.readFile();
     }
     return this.instance;
   }
