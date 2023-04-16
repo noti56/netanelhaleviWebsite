@@ -3,8 +3,10 @@ import { Button } from "@/Components/Button";
 
 import { Input } from "@/Components/Input";
 
+import { useState } from "react";
+
 // interface chatProps {
-//   msgsProps: string[];
+//   users: string[];
 // }
 // export async function getServerSideProps() {
 //   return {
@@ -13,11 +15,31 @@ import { Input } from "@/Components/Input";
 // }
 
 const Home = () => {
+  const [loginData, setLoginData] = useState<{ username: string; password: string }>({
+    password: "",
+    username: "",
+  });
+  const submitRequest = async () => {
+    const req = await fetch("/api/login", { body: JSON.stringify(loginData), method: "POST" });
+    const data: { token: string; msg: string } = await req.json();
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+    }
+  };
   return (
     <div>
-      <Input placeholder="Who Are You?" />
-      <Input type="password" placeholder="Ur key Word" />
-      <Button> Submit</Button>
+      <Input
+        placeholder="Who Are You?"
+        value={loginData.username}
+        onChange={(e) => setLoginData((state) => ({ ...state, username: e.target.value }))}
+      />
+      <Input
+        type="password"
+        placeholder="Ur key Word"
+        value={loginData.password}
+        onChange={(e) => setLoginData((state) => ({ ...state, password: e.target.value }))}
+      />
+      <Button onClick={submitRequest}> Submit</Button>
     </div>
   );
 };

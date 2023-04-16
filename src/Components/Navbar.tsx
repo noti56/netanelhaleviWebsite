@@ -12,6 +12,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Link href={"/chat"}>Chat</Link>
+      <Link href={"/portfolio"}>Portfolio</Link>
       <Link href={"/login"}>Admin</Link>
     </Nav>
   );
