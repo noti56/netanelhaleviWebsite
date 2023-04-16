@@ -6,6 +6,7 @@ import { randomUUID } from "crypto";
 import { KeyboardEvent, useEffect, useState } from "react";
 import styled from "styled-components";
 import { getMessages } from "./api/messages";
+import { Input } from "@/Components/Input";
 
 interface chatProps {
   msgsProps: string[];
@@ -86,16 +87,7 @@ const Home = ({ msgsProps }: chatProps) => {
 };
 export default Home;
 
-const Input = styled.input`
-  width: 50%;
-  height: 30px;
-  padding: 10px;
-  margin: auto;
-  border: 0px;
-  border-bottom: 1px solid black;
-  outline: none;
-  font-size: larger;
-`;
+
 const MessagesView = styled.div`
   display: flex;
   justify-content: space-between;

@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { Server } from "socket.io";
 import { Messages } from "./MessagesClass";
 import { NextApiResponseWithSocket } from "./types";
+
 const d = "default";
 export default function handler(req: NextApiRequest, res: NextApiResponseWithSocket) {
   if (res.socket.server.io) {
