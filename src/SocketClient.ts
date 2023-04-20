@@ -4,8 +4,6 @@ export class SocketClient {
   static getInstance() {
     if (!this.instance) {
       this.instance = io();
-
-      console.log(this.instance);
     }
     return this.instance;
   }

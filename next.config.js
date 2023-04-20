@@ -1,9 +1,10 @@
 const withPWA = require("next-pwa")({
   dest: "public",
-  register: true,
-  skipWaiting: true,
-  // swSrc: '/service-worker.js'
+  importScripts: ['/customWorker.js']
+
 });
+
+
 
 module.exports = withPWA({
   reactStrictMode: true,

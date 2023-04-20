@@ -31,7 +31,7 @@ const Home = ({ msgsProps }: chatProps) => {
       await initSocket();
 
       SocketClient.getInstance().on("connect", () => {
-        console.log("connected");
+        console.log("Socket for chat is connected");
       });
       SocketClient.getInstance().on("message-get", (msgs: string[]) => {
         setMessages(msgs);
@@ -86,7 +86,6 @@ const Home = ({ msgsProps }: chatProps) => {
   );
 };
 export default Home;
-
 
 const MessagesView = styled.div`
   display: flex;
