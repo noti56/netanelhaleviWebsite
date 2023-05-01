@@ -54,9 +54,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Layout>
-      <button onClick={subscribeButtonOnClick} >
+      {/* <button onClick={subscribeButtonOnClick} >
         Subscribe
-      </button>
+      </button> */}
 
       <Component {...pageProps} />
     </Layout>

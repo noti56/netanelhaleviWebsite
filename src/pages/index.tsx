@@ -73,13 +73,13 @@ export default function Home() {
         </FlexColumn>
         <RightColumn>
           <ImageContianer>
-            <Image
+            {/* <Image
               src="/nati.jpg"
               alt="Picture of the author"
               width={100}
               height={100}
               style={{ borderRadius: "20%" }}
-            />
+            /> */}
           </ImageContianer>
           <CanvasContianer>
             <ThreeScene />

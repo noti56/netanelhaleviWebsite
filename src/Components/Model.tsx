@@ -6,11 +6,14 @@ import { Vector3 as R3fVector3, useFrame, useThree } from "@react-three/fiber";
 import useHeadMouse, { getMouseDegrees, moveJoint } from "@/hooks/UseHeadMouse";
 import { clamp, degToRad } from "three/src/math/MathUtils";
 import useAnimationAction from "@/hooks/useAnimationAction";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 interface props {
   position: R3fVector3;
 }
 const Model = ({ position }: props) => {
+  const screenType = useWindowSize();
+
   const character = useFBX(`nati.fbx`);
   const [mouseX, setmousePosX] = useState<number>(0);
   const [mouseY, setmousePosY] = useState<number>(0);
@@ -20,11 +23,13 @@ const Model = ({ position }: props) => {
   const vec = new Vector3();
 
   useEffect(() => {
-    document.addEventListener("mousemove", getMouseMovement);
+    if (screenType == "desktop") {
+      document.addEventListener("mousemove", getMouseMovement);
+    }
     return () => {
       document.removeEventListener("mousemove", getMouseMovement);
     };
-  }, [ref]);
+  }, [ref, screenType]);
 
   const getMouseMovement = (mouseEvent: MouseEvent) => {
     console.log(mouseEvent);
