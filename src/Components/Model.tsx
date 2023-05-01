@@ -11,7 +11,7 @@ interface props {
   position: R3fVector3;
 }
 const Model = ({ position }: props) => {
-  const character = useFBX(`character.fbx`);
+  const character = useFBX(`nati.fbx`);
   const [mouseX, setmousePosX] = useState<number>(0);
   const [mouseY, setmousePosY] = useState<number>(0);
   const ref = useRef<Group>() as React.MutableRefObject<Group>;
