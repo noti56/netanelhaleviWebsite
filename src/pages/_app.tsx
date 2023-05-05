@@ -1,6 +1,6 @@
 import Layout from "@/Components/Layout";
 import "@/styles/globals.css";
-
+import "react-toggle/style.css";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 const publicVapidKey =

@@ -32,7 +32,6 @@ const Model = ({ position }: props) => {
   }, [ref, screenType]);
 
   const getMouseMovement = (mouseEvent: MouseEvent) => {
-    console.log(mouseEvent);
     const mouseX = (mouseEvent.clientX / window.innerWidth) * 2 - 1;
     const mouseY = -(mouseEvent.clientY / window.innerHeight) * 2 + 1;
 

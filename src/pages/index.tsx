@@ -65,8 +65,9 @@ export default function Home() {
             אז כמו שבטח כבר ראיתם והבנתם, אני מורה פרטי, יש לי ניסיון בלימוד ילדים מבוגרים ונוער
           </Text>
           <Text>אז מצורף באתר זה כל מיני פרטים עליי ומקום ליצירת קשר</Text>
-          
-          <Link href={"/chat"}>ליצירת קשר בתוך האתר</Link>
+
+          <Link href={"/leaveDetails"}>ליצירת קשר בתוך האתר</Link>
+
           <Text>Whatsappp icon</Text>
           <Text>Discord</Text>
           <Text>Gmail</Text>

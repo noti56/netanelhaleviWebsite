@@ -11,7 +11,9 @@ const Nav = styled.nav`
 const Navbar = () => {
   return (
     <Nav>
+      <Link href={"/"}>main page</Link>
       <Link href={"/portfolio"}>Portfolio</Link>
+      <Link href={"/leaveDetails"}>leaveDetails</Link>
       <Link href={"/login"}>Admin</Link>
     </Nav>
   );
